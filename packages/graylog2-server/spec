@@ -1,0 +1,6 @@
+---
+name: graylog2-server
+dependencies:
+- java7
+files:
+- graylog2-server/graylog2-server-0.9.6p1.tar.gz

@@ -3,3 +3,7 @@ java/jre-7u4-linux-x64.tar.gz:
   object_id: a6928fe6-c7c5-4bb2-8251-207fb3d03ec2
   sha: 1108d1744baa73bf6caa2adf965d0f489ea1ef60
   size: 32771159
+graylog2-server/graylog2-server-0.9.6p1.tar.gz:
+  object_id: 7062ec9e-f8ee-4279-97d7-f0796a3e0476
+  sha: 2e51c9e747b3c8a611cda0c27aed4448b67b64ae
+  size: 8860643
