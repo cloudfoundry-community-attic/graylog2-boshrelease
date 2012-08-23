@@ -1,0 +1,13 @@
+---
+name: graylog2-server
+packages:
+- graylog2-server
+- java7
+templates:
+  bin/graylog2_server_ctl: bin/graylog2_server_ctl
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  config/graylog2.conf.erb: config/graylog2.conf
+  config/graylog2-elasticsearch.yml.erb: config/graylog2-elasticsearch.yml

@@ -1,0 +1,5 @@
+check process graylog2-server
+  with pidfile /var/vcap/sys/run/graylog2-server/graylog2-server.pid
+  start program "/var/vcap/jobs/graylog2-server/bin/monit_debugger graylog2-server_ctl '/var/vcap/jobs/graylog2-server/bin/graylog2-server_ctl start'"
+  stop program "/var/vcap/jobs/graylog2-server/bin/monit_debugger graylog2-server_ctl '/var/vcap/jobs/graylog2-server/bin/graylog2-server_ctl stop'"
+  group vcap
