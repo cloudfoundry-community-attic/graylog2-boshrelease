@@ -1,0 +1,24 @@
+path:
+  data: /var/vcap/store/elasticsearch/data
+  work: /var/vcap/store/elasticsearch/data
+  logs: /var/vcap/sys/log/elasticsearch/
+
+cluster:
+  name: default
+
+discovery:
+  zen:
+    ping:
+      multicast:
+        enabled: false
+      unicast:
+        hosts: 127.0.0.1
+
+gateway:
+  type: fs
+  fs:
+    location: /var/vcap/store/elasticsearch/gateway
+
+index:
+  number_of_shards: 6   # 6*2 shards per index distributes evenly across 3, 4, or 6 nodes
+  number_of_replicas: 1 # replicas are in addition to the original, so 1 replica means 2 copies of each shard 

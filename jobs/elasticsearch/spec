@@ -1,0 +1,15 @@
+---
+name: elasticsearch
+packages:
+- java7
+- elasticsearch
+templates:
+  bin/elasticsearch_ctl: bin/elasticsearch_ctl
+  bin/elasticsearch.wrapper: bin/elasticsearch.wrapper
+  bin/monit_debugger: bin/monit_debugger
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+  config/elasticsearch.yml.erb: config/elasticsearch.yml
+  config/elasticsearch.conf.erb: config/elasticsearch.conf
+  config/logging.yml: config/logging.yml

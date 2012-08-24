@@ -1,5 +1,10 @@
 ---
+jobs:
+- elasticsearch
+- graylog2-server
 properties:
   elasticsearch:
     host: 127.0.0.1
     port: 9200
+    jvm:
+      es_max_mem: 256m # properties.elasticsearch.jvm.es_max_mem

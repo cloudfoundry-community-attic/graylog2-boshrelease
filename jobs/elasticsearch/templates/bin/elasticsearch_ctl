@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+# Setup env vars and folders for the webapp_ctl script
+source /var/vcap/jobs/elasticsearch/helpers/ctl_setup.sh 'elasticsearch'
+
+export PORT=${PORT:-5000}
+export LANG=en_US.UTF-8
+
+case $1 in
+
+  start)
+    pid_guard $PIDFILE $JOB_NAME
+
+    export ES_CLASSPATH=$CLASSPATH
+    #   ES_CLASSPATH -- A Java classpath containing everything necessary to run.
+    #   JAVA_OPTS    -- Additional arguments to the JVM for heap size, etc
+    #   ES_JAVA_OPTS -- External Java Opts on top of the defaults set
+
+    # ES_INCLUDE=$JOB_DIR/config/in.sh
+
+    # TODO seeds? https://github.com/harlanbarnes/elasticsearch-cookbook/blob/master/recipes/default.rb#L3-9
+    
+    # TODO or elasticsearch.wrapper?
+    exec $JOB_DIR/bin/elasticsearch.wrapper start \
+         -p $PIDFILE \
+         >>$LOG_DIR/$JOB_NAME.stdout.log \
+         2>>$LOG_DIR/$JOB_NAME.stderr.log
+    ;;
+
+  stop)
+    kill_and_wait $PIDFILE
+
+    ;;
+  *)
+    echo "Usage: elasticsearch_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0
